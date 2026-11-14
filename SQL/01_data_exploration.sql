@@ -40,15 +40,15 @@ order by sector;
 -- Company Revenue Summary (in millions)
 select 
 round(min(revenue),2) as min_revenue,
-round(max(revenue),2) as max_revenue,
-round(avg(revenue),2) as avg_revenue
+round(avg(revenue),2) as avg_revenue,
+round(max(revenue),2) as max_revenue
 from accounts;
 
 -- Product Pricing Summary
 select
 min(sales_price) as min_sale_price,
-max(sales_price) as max_sale_price,
-avg(sales_price) as avg_sale_price
+avg(sales_price) as avg_sale_price,
+max(sales_price) as max_sale_price
 from products;
 
 -- Deal stages
@@ -58,8 +58,8 @@ from sales_pipeline;
 -- Company Employee Summary
 select 
 min(employees) as min_employees,
-max(employees) as max_employees,
-avg(employees) as avg_employees
+avg(employees) as avg_employees,
+max(employees) as max_employees
 from accounts;
 
 -- Manager distribution
@@ -98,3 +98,11 @@ sum(close_value) as total_revenue
 from sales_pipeline
 group by sales_agent
 order by total_revenue desc;
+
+-- Close revenue summary
+select 
+min(close_value) as min_close_value,
+avg(close_value) as avg_close_value,
+max(close_value) as max_close_value
+from sales_pipeline;
+
